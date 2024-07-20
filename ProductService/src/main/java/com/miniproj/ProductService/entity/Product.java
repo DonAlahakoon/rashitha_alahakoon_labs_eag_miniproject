@@ -1,4 +1,4 @@
-package com.miniproj.cart.ProductService.entity;
+package com.miniproj.ProductService.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

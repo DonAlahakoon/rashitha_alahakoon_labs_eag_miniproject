@@ -1,11 +1,11 @@
-package com.miniproj.cart.ProductService.service.impl;
+package com.miniproj.ProductService.service.impl;
 
-import com.miniproj.cart.ProductService.dto.ProductDto;
-import com.miniproj.cart.ProductService.entity.Product;
-import com.miniproj.cart.ProductService.exception.ResourceNotFoundException;
-import com.miniproj.cart.ProductService.dto.mapper.ProductMapper;
-import com.miniproj.cart.ProductService.repository.ProductRepository;
-import com.miniproj.cart.ProductService.service.ProductService;
+import com.miniproj.ProductService.dto.ProductDto;
+import com.miniproj.ProductService.entity.Product;
+import com.miniproj.ProductService.exception.ResourceNotFoundException;
+import com.miniproj.ProductService.dto.mapper.ProductMapper;
+import com.miniproj.ProductService.repository.ProductRepository;
+import com.miniproj.ProductService.service.ProductService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -72,7 +72,7 @@ public class ProductServiceImpl implements ProductService {
         Product product = productRepository.findById(productId)
                 .orElseThrow(()-> new ResourceNotFoundException("Product not exist for given id: "+productId));
         productRepository.deleteById(productId);
-        log.debug("product soft-deleted with id: {}",productId);
+        log.debug("Product deleted with id: {}",productId);
 
     }
 }

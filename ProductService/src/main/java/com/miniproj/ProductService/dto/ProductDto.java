@@ -1,4 +1,4 @@
-package com.miniproj.cart.ProductService.dto;
+package com.miniproj.ProductService.dto;
 
 import lombok.*;
 

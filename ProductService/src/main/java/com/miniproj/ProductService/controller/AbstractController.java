@@ -1,10 +1,11 @@
-package com.miniproj.cart.ProductService.controller;
+package com.miniproj.ProductService.controller;
 
-import com.miniproj.cart.ProductService.dto.ResponseObject;
-import com.miniproj.cart.ProductService.exception.GenericException;
-import com.miniproj.cart.ProductService.exception.InvalidRequestException;
-import com.miniproj.cart.ProductService.exception.ResourceNotFoundException;
+import com.miniproj.ProductService.dto.ResponseObject;
+import com.miniproj.ProductService.exception.GenericException;
+import com.miniproj.ProductService.exception.InvalidRequestException;
+import com.miniproj.ProductService.exception.ResourceNotFoundException;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -51,6 +52,11 @@ public class AbstractController {
     public ResponseEntity<ResponseObject> handleHttpMessageNotReadableException(HttpMessageNotReadableException exception){
         log.error("HTTP message not readable exception: {}",exception.getMessage());
         return sendResponse("Invalid input format",HttpStatus.BAD_REQUEST);
+    }
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ResponseObject> handleConstraintViolationException(ConstraintViolationException exception){
+        log.error("Constraint violation exception: {}", exception);
+        return sendResponse("Validation error: " +exception.getMessage(),HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)

@@ -1,6 +1,6 @@
-package com.miniproj.cart.ProductService.service;
+package com.miniproj.ProductService.service;
 
-import com.miniproj.cart.ProductService.dto.ProductDto;
+import com.miniproj.ProductService.dto.ProductDto;
 
 import java.util.List;
 

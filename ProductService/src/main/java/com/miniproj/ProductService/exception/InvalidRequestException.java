@@ -1,4 +1,4 @@
-package com.miniproj.cart.ProductService.exception;
+package com.miniproj.ProductService.exception;
 
 import org.springframework.http.HttpStatus;
 
